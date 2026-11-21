@@ -19,7 +19,7 @@ from app.core.constants import (
 
 
 class Settings(BaseSettings):
-    app_name: str = "AI Resume Analyzer"
+    app_name: str = "SkillBridge"
     app_env: str = "development"
     debug: bool = False
     api_v1_prefix: str = API_V1_PREFIX_DEFAULT
