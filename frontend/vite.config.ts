@@ -30,15 +30,19 @@ function sourceFingerprint(): string {
 
 export default defineConfig({
   plugins: [{
-    name: "scoreboare-build-fingerprint",
+    name: "skillbridge-build-fingerprint",
     closeBundle() {
-      writeFileSync(resolve(frontendRoot, "dist", ".build-source-hash"), sourceFingerprint());
+      const indexPath = resolve(frontendRoot, "dist", "index.html");
+      const indexFingerprint = createHash("sha256").update(readFileSync(indexPath)).digest("hex");
+      const manifest = JSON.stringify({ sourceFingerprint: sourceFingerprint(), indexFingerprint });
+      writeFileSync(resolve(frontendRoot, "dist", ".build-source-hash"), manifest);
     },
   }],
+  root: frontendRoot,
   server: {
     host: "127.0.0.1",
     port: 5173,
     proxy: { "/api": "http://127.0.0.1:8001" },
   },
-  build: { outDir: "dist", emptyOutDir: true },
+  build: { outDir: resolve(frontendRoot, "dist"), emptyOutDir: true },
 });

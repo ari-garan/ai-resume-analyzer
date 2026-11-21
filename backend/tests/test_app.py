@@ -48,7 +48,7 @@ def test_frontend_production_build_is_served_by_fastapi():
         style_path = re.search(r'href="([^"]+\.css)"', response.text).group(1)
         script = client.get(script_path)
         stylesheet = client.get(style_path)
-    assert "Scoreboare" in response.text
+    assert "SkillBridge" in response.text
     assert script.status_code == 200
     assert "Analysis workspace" in script.text
     assert stylesheet.status_code == 200

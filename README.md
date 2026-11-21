@@ -1,4 +1,4 @@
-# AI Resume Analyzer
+# SkillBridge - AI Resume Analyzer
 
 FastAPI service that accepts PDF or pasted resume and job description content, extracts structured profiles with an LLM, calculates a deterministic match score in Python, and stores results in MySQL.
 

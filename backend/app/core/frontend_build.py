@@ -1,4 +1,5 @@
 import hashlib
+import json
 
 from app.core.constants import FRONTEND_PATH, FRONTEND_BUILD_PATH
 
@@ -21,6 +22,11 @@ def frontend_source_fingerprint() -> str:
 def frontend_build_is_current() -> bool:
     marker = FRONTEND_BUILD_PATH / ".build-source-hash"
     try:
-        return marker.read_text(encoding="utf-8").strip() == frontend_source_fingerprint()
-    except OSError:
+        manifest = json.loads(marker.read_text(encoding="utf-8"))
+        index_fingerprint = hashlib.sha256((FRONTEND_BUILD_PATH / "index.html").read_bytes()).hexdigest()
+        return (
+            manifest.get("sourceFingerprint") == frontend_source_fingerprint()
+            and manifest.get("indexFingerprint") == index_fingerprint
+        )
+    except (OSError, json.JSONDecodeError):
         return False

@@ -67,6 +67,6 @@ else:
     @app.get("/", include_in_schema=False)
     def frontend_build_hint():
         return HTMLResponse(
-            "<h1>Scoreboare frontend build is missing or stale</h1><p>Run <code>npm run build</code> in the frontend directory, or start Vite with <code>npm run dev</code>.</p>",
+            "<h1>SkillBridge frontend build is missing or stale</h1><p>Run <code>npm run build</code> in the frontend directory, or start Vite with <code>npm run dev</code>.</p>",
             status_code=503,
         )

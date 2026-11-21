@@ -41,7 +41,7 @@ export default function AnalysisPage() {
   }
 
   return <div className="app-shell">
-    <header className="topbar"><a className="brand" href="/" aria-label="Scoreboare home"><span className="brand-mark"><i /><i /><i /></span><span>Scoreboare</span></a><nav className="top-nav" aria-label="Main navigation"><a className="nav-active" href="#analyzer">Analyzer</a></nav><div className="local-status"><span className="status-dot" /> Analysis workspace</div></header>
+    <header className="topbar"><a className="brand" href="/" aria-label="SkillBridge home"><span className="brand-mark"><i /><i /><i /></span><span>SkillBridge</span></a><nav className="top-nav" aria-label="Main navigation"><a className="nav-active" href="#analyzer">Analyzer</a></nav><div className="local-status"><span className="status-dot" /> Analysis workspace</div></header>
     <main id="analyzer">
       <section className="intro"><div className="eyebrow"><span className="eyebrow-line" /> TALENT, WITH CLARITY</div><h1>Find the fit.<br /><span>See what’s missing.</span></h1><p className="intro-copy">Compare a resume with a role and get a grounded match score, strengths, and next steps.</p><div className="intro-meta"><span className="meta-icon">✳</span> Evidence-based matching <span className="meta-divider" /> Source PDFs aren’t stored</div></section>
       <form className="workspace" onSubmit={submit} noValidate><section className="input-panel" aria-label="Analysis inputs">
@@ -51,7 +51,7 @@ export default function AnalysisPage() {
         <div className="submit-row"><div className="privacy-note"><span>◈</span> PDFs are processed in memory; originals aren’t saved.</div><button className={`analyze-button${loading ? " loading" : ""}`} type="submit" disabled={loading}><span className="button-label">{loading ? "Analyzing documents…" : "Analyze match"}</span><span className="button-arrow">→</span><span className="spinner" /></button></div>
       </section></form>
       {result && <AnalysisResults data={result} />}
-      <footer className="footer"><span>Scoreboare - Resume insight, made practical.</span><span>Match score is deterministic and evidence-based.</span></footer>
+      <footer className="footer"><span>SkillBridge - Resume insight, made practical.</span><span>Match score is deterministic and evidence-based.</span></footer>
     </main>
   </div>;
 }
